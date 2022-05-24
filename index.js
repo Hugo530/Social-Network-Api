@@ -1,4 +1,4 @@
-mport express from 'express';
+import express from 'express';
 import { connection as db } from './config/connection.js';
 import { router as routes } from './routes/index.js';
 
@@ -11,6 +11,6 @@ app.use(routes);
 
 db.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`API server for ThoughtSpeak running on port ${PORT}!`);
+        console.log(`API server for Social-Network-API running on port ${PORT}!`);
     });
 });
