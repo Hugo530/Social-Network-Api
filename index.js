@@ -1,6 +1,8 @@
-import express from 'express';
-import { connection as db } from './config/connection.js';
-import { router as routes } from './routes/index.js';
+const express = require('express');
+const db = require('./config/connection');
+const routes = require('./routes');
+
+const cwd = process.cwd();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -10,7 +12,7 @@ app.use(express.json());
 app.use(routes);
 
 db.once('open', () => {
-    app.listen(PORT, () => {
-        console.log(`API server for Social-Network-API running on port ${PORT}!`);
-    });
+  app.listen(PORT, () => {
+    console.log(`Server running at port: ${PORT}`)
+  });
 });
